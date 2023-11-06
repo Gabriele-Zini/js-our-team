@@ -30,3 +30,19 @@ const teamMembers = [
     image: "barbara-ramos-graphic-designer.jpg",
   },
 ];
+
+const members = document.querySelector(".members");
+let singleMember = "";
+
+for (let i = 0; i < teamMembers.length; i++) {
+  let curMember = teamMembers[i];
+  singleMember += ` <li class="card p-5 col-12 col-md-4">
+                        <ul class="list-unstyled">
+                            <li>${curMember.name}</li>
+                            <li>${curMember.role}</li>
+                            <li>${curMember.image}</li>
+                        </ul>
+                    </li>`;
+}
+
+members.innerHTML = singleMember;
