@@ -2,47 +2,51 @@ const teamMembers = [
   {
     name: "Wayne Barnett",
     role: "Founder & CEO",
-    image: "wayne-barnett-founder-ceo.jpg",
+    image: "../img/wayne-barnett-founder-ceo.jpg",
   },
   {
     name: "Angela Caroll",
     role: "Chief Editor",
-    image: "angela-caroll-chief-editor.jpg",
+    image: "../img/angela-caroll-chief-editor.jpg",
   },
   {
     name: "Walter Gordon",
     role: "Office Manager",
-    image: "walter-gordon-office-manager.jpg",
+    image: "../img/walter-gordon-office-manager.jpg",
   },
   {
     name: "Angela Lopez	Social",
     role: "Media Manager",
-    image: "angela-lopez-social-media-manager.jpg",
+    image: "../img/angela-lopez-social-media-manager.jpg",
   },
   {
     name: "Scott Estrada",
     role: "Developer",
-    image: "cott-estrada-developer.jpg",
+    image: "../img/scott-estrada-developer.jpg",
   },
   {
     name: "Barbara Ramos",
     role: "Graphic Designer",
-    image: "barbara-ramos-graphic-designer.jpg",
+    image: "../img/barbara-ramos-graphic-designer.jpg",
   },
 ];
 
 const members = document.querySelector(".members");
-let singleMember = "";
 
 for (let i = 0; i < teamMembers.length; i++) {
+  let imageEl = document.createElement("img");
   let curMember = teamMembers[i];
-  singleMember += ` <li class="card p-5 col-12 col-md-4">
-                        <ul class="list-unstyled">
-                            <li>${curMember.name}</li>
-                            <li>${curMember.role}</li>
-                            <li>${curMember.image}</li>
-                        </ul>
-                    </li>`;
-}
+  let singleMember = document.createElement("li");
+  singleMember.classList = "card p-5 col-12 col-md-4";
+  imageEl.src = curMember.image;
+  singleMember.innerHTML = `<li>
+                                <ul class="list-unstyled">
+                                    <li>${curMember.name}</li>
+                                    <li>${curMember.role}</li>
+                                </ul>
+                            </li>`;
 
-members.innerHTML = singleMember;
+  let ulElement = singleMember.querySelector("ul");
+  ulElement.appendChild(imageEl);
+  members.appendChild(singleMember);
+}
